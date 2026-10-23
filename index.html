@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nairobi Woodworks Furniture</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; margin: 0; background: #faf6f0; color: #2b2b2b; }
+  header { background: #5b3a1e; color: white; padding: 20px; text-align: center; }
+  header h1 { margin: 0; font-size: 24px; }
+  header p { margin: 5px 0 0; font-size: 13px; color: #e8d9c5; }
+  .banner { background: #8b5a2b; color: white; padding: 14px; text-align: center; font-size: 14px; }
+  .container { max-width: 900px; margin: auto; padding: 15px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+  @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+  .card img { width: 100%; height: 160px; object-fit: cover; background: #ddd; }
+  .card-body { padding: 10px; }
+  .card-body h3 { margin: 0 0 5px; font-size: 16px; color: #5b3a1e; }
+  .price { color: #b12704; font-weight: bold; font-size: 15px; margin: 4px 0; }
+  .desc { font-size: 12px; color: #666; margin: 0 0 10px; }
+  .buy-btn { background: #00a651; color: white; border: none; padding: 10px; border-radius: 6px; width: 100%; font-size: 14px; cursor: pointer; }
+  .buy-btn:active { background: #008a44; }
+  .order-box { background: white; border-radius: 10px; padding: 18px; margin-top: 25px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); display: none; }
+  .order-box h2 { margin-top: 0; color: #5b3a1e; font-size: 20px; }
+  .order-box label { display: block; font-size: 13px; margin: 10px 0 4px; font-weight: bold; }
+  .order-box input, .order-box select, .order-box textarea {
+    width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; font-family: inherit;
+  }
+  .submit-btn { background: #b12704; color: white; border: none; padding: 12px; border-radius: 6px; width: 100%; font-size: 16px; margin-top: 15px; cursor: pointer; }
+  .payment { display: none; background: #fff8e1; border: 2px solid #f0b400; border-radius: 10px; padding: 18px; margin-top: 15px; text-align: center; }
+  .payment h3 { color: #b12704; margin-top: 0; }
+  .payment .mpesa { font-size: 24px; font-weight: bold; color: #00a651; letter-spacing: 1px; margin: 10px 0; }
+  footer { text-align: center; padding: 20px; font-size: 12px; color: #888; }
+  .selected-item { background: #e8f5e9; padding: 10px; border-radius: 6px; font-size: 14px; margin-bottom: 10px; color: #2e7d32; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🪑 Nairobi Woodworks Furniture</h1>
+  <p>Quality Furniture • Nairobi, Kenya • Countrywide Delivery</p>
+</header>
+<div class="banner">🚚 We deliver countrywide for a flat fee of <b>KES 1,500</b></div>
+
+<div class="container">
+  <h2 style="color:#5b3a1e; font-size:20px;">Our Products</h2>
+  <div class="grid" id="productGrid"></div>
+
+  <div class="order-box" id="orderBox">
+    <h2>Complete Your Order</h2>
+    <div class="selected-item" id="selectedItem">You selected: —</div>
+    <label>Full Name</label>
+    <input type="text" id="fullName" placeholder="e.g. John Kamau">
+    <label>Phone Number (M-Pesa)</label>
+    <input type="tel" id="phone" placeholder="e.g. 0712345678">
+    <label>Delivery Location (Town / Estate / County)</label>
+    <input type="text" id="location" placeholder="e.g. Kasarani, Nairobi">
+    <label>Additional Delivery Details (optional)</label>
+    <textarea id="notes" rows="2" placeholder="e.g. Near Quickmart, house 12B"></textarea>
+    <label>Preferred Delivery Date</label>
+    <input type="date" id="date">
+    <button class="submit-btn" onclick="submitOrder()">Submit Order →</button>
+  </div>
+
+  <div class="payment" id="paymentBox">
+    <h3>✅ Order Received!</h3>
+    <p>To confirm your delivery, please pay the delivery fee:</p>
+    <div class="mpesa">KES 1,500</div>
+    <p>Send via M-Pesa to:</p>
+    <div class="mpesa">0741601604</div>
+    <p style="font-size:13px;">After payment, send the M-Pesa confirmation SMS to <b>0741601604</b> via WhatsApp so we can schedule your delivery.</p>
+    <p style="font-size:13px; color:#666;"><b>⚠️ Delivery begins only after the fee is received.</b></p>
+  </div>
+</div>
+
+<footer>© Nairobi Woodworks Furniture • Nairobi, Kenya</footer>
+
+<script>
+const products = [
+  { name: "L-Shaped Sofa Set (5-Seater)", price: 68000, desc: "Genuine leather, grey", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=60" },
+  { name: "3-Seater Fabric Sofa", price: 35000, desc: "Beige fabric, wooden frame", img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=60" },
+  { name: "Queen Bed Frame (Mahogany)", price: 45000, desc: "6x6, solid wood", img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&q=60" },
+  { name: "King Bed with Headboard", price: 58000, desc: "6x7, padded headboard", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=60" },
+  { name: "Dining Table + 6 Chairs", price: 42000, desc: "Mahogany finish", img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400&q=60" },
+  { name: "6-Door Wardrobe", price: 38000, desc: "Sliding doors, mirror", img: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&q=60" },
+  { name: "TV Stand (Modern)", price: 18000, desc: "Black & walnut", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=400&q=60" },
+  { name: "Office Desk", price: 16000, desc: "Wooden, with drawers", img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&q=60" },
+  { name: "Executive Office Chair", price: 14000, desc: "Reclining, leather", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&q=60" },
+  { name: "Coffee Table (Glass Top)", price: 12000, desc: "Tempered glass + steel", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400&q=60" },
+  { name: "Bookshelf (5-Tier)", price: 9500, desc: "Light wood finish", img: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&q=60" },
+  { name: "Kids Bunk Bed", price: 32000, desc: "With safety rails", img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&q=60" },
+  { name: "Recliner Sofa Chair", price: 22000, desc: "Brown leather", img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=60" },
+  { name: "Bar Stool (Set of 2)", price: 8000, desc: "Metal frame", img: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=400&q=60" },
+  { name: "Wall Mirror (Large)", price: 6500, desc: "Framed, 100cm", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=60" },
+  { name: "Shoe Rack Cabinet", price: 7500, desc: "Wooden, 2 tiers", img: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=60" }
+];
+
+let selectedProduct = null;
+
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  products.forEach((p, i) => {
+    grid.innerHTML += `
+      <div class="card">
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/400x160?text=Furniture'">
+        <div class="card-body">
+          <h3>${p.name}</h3>
+          <div class="price">KES ${p.price.toLocaleString()}</div>
+          <p class="desc">${p.desc}</p>
+          <button class="buy-btn" onclick="selectProduct(${i})">Buy Item</button>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function selectProduct(i) {
+  selectedProduct = products[i];
+  document.getElementById('selectedItem').innerText =
+    "You selected: " + selectedProduct.name + " — KES " + selectedProduct.price.toLocaleString();
+  document.getElementById('orderBox').style.display = 'block';
+  document.getElementById('paymentBox').style.display = 'none';
+  document.getElementById('orderBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitOrder() {
+  const name = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const location = document.getElementById('location').value.trim();
+
+  if (!name || !phone || !location) {
+    alert("Please fill in your name, phone number, and delivery location.");
+    return;
+  }
+  if (phone.length < 10) {
+    alert("Please enter a valid phone number.");
+    return;
+  }
+
+  document.getElementById('orderBox').style.display = 'none';
+  document.getElementById('paymentBox').style.display = 'block';
+  document.getElementById('paymentBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+renderProducts();
+</script>
+</body>
+  </html>
