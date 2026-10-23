@@ -78,22 +78,22 @@
 
 <script>
 const products = [
-  { name: "L-Shaped Sofa Set (5-Seater)", price: 68000, desc: "Genuine leather, grey", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=60" },
-  { name: "3-Seater Fabric Sofa", price: 35000, desc: "Beige fabric, wooden frame", img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=60" },
-  { name: "Queen Bed Frame (Mahogany)", price: 45000, desc: "6x6, solid wood", img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&q=60" },
-  { name: "King Bed with Headboard", price: 58000, desc: "6x7, padded headboard", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=60" },
-  { name: "Dining Table + 6 Chairs", price: 42000, desc: "Mahogany finish", img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400&q=60" },
-  { name: "6-Door Wardrobe", price: 38000, desc: "Sliding doors, mirror", img: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&q=60" },
-  { name: "TV Stand (Modern)", price: 18000, desc: "Black & walnut", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=400&q=60" },
-  { name: "Office Desk", price: 16000, desc: "Wooden, with drawers", img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&q=60" },
-  { name: "Executive Office Chair", price: 14000, desc: "Reclining, leather", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&q=60" },
-  { name: "Coffee Table (Glass Top)", price: 12000, desc: "Tempered glass + steel", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400&q=60" },
-  { name: "Bookshelf (5-Tier)", price: 9500, desc: "Light wood finish", img: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&q=60" },
-  { name: "Kids Bunk Bed", price: 32000, desc: "With safety rails", img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&q=60" },
-  { name: "Recliner Sofa Chair", price: 22000, desc: "Brown leather", img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=60" },
-  { name: "Bar Stool (Set of 2)", price: 8000, desc: "Metal frame", img: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=400&q=60" },
-  { name: "Wall Mirror (Large)", price: 6500, desc: "Framed, 100cm", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=60" },
-  { name: "Shoe Rack Cabinet", price: 7500, desc: "Wooden, 2 tiers", img: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=60" }
+  { name: "Modern 5-Seater Tufted Sofa (Black & White)", price: 55000, desc: "Faux leather, button-tufted, Nairobi delivery ready", img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=60" },
+  { name: "L-Shaped Fabric Sofa (Grey)", price: 38000, desc: "5-seater corner sofa, soft fabric, wooden frame", img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=400&q=60" },
+  { name: "Classic Oval Dining Set (Table + 6 Chairs)", price: 25000, desc: "Dark walnut finish, solid wood, high-back chairs", img: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400&q=60" },
+  { name: "Modern Wingback Bed (Charcoal Grey)", price: 18000, desc: "Upholstered platform bed, crystal button headboard", img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400&q=60" },
+  { name: "Queen Bed + 2 Matching Nightstands", price: 25000, desc: "Grey fabric, channel-tufted headboard, gold handles", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=60" },
+  { name: "3-Door Wooden Wardrobe", price: 28500, desc: "Hanging rods + shelves, compact footprint", img: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400&q=60" },
+  { name: "Portable 3-Column Wardrobe", price: 4500, desc: "Fabric closet, solid wood frame, moveable", img: "https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=60" },
+  { name: "TV Stand + Coffee Table Set (Modern)", price: 32000, desc: "Coordinated living room set, storage compartments", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=400&q=60" },
+  { name: "Office Desk (L-Shaped Executive)", price: 14500, desc: "Wooden, with drawers, home office ready", img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&q=60" },
+  { name: "Executive Recliner Office Chair", price: 9500, desc: "Leather, reclining, ergonomic support", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=400&q=60" },
+  { name: "Coffee Table (Glass Top + Steel Frame)", price: 7800, desc: "Tempered glass, modern minimalist design", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400&q=60" },
+  { name: "5-Tier Bookshelf (Light Wood)", price: 6500, desc: "Open shelving, living room or study", img: "https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400&q=60" },
+  { name: "Kids Bunk Bed (With Safety Rails)", price: 22000, desc: "Solid wood, space-saving, secure rails", img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&q=60" },
+  { name: "Recliner Sofa Chair (Brown Leather)", price: 15000, desc: "Single seater, manual recline, padded armrests", img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=400&q=60" },
+  { name: "Bar Stool Set (2 Pieces)", price: 5500, desc: "Metal frame, counter-height, kitchen ready", img: "https://images.unsplash.com/photo-1551298370-9d3d53740c72?w=400&q=60" },
+  { name: "Large Wall Mirror (100cm)", price: 4800, desc: "Framed, bedroom or hallway, Nairobi stock", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&q=60" }
 ];
 
 let selectedProduct = null;
